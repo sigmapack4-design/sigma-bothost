@@ -25,112 +25,59 @@
 {"@type":"Question","name":"Can I message all users of my bots at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. The broadcast feature sends one message, with an optional link button, to every user of every hosted bot from a single panel."}}]}
 </script>
 <style>
-*{box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,Arial,sans-serif;margin:0;color:#17142b;background:linear-gradient(160deg,#f4f4fd 0%,#e6e6fb 45%,#d9d7f8 100%);min-height:100vh}
-.wrap{max-width:1060px;margin:0 auto;padding:18px 18px 40px}
-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 6px}
-.logo{font-weight:800;font-size:20px;letter-spacing:.5px}.logo i{font-style:normal;color:#6a5cff}
-nav .links a{color:#3a3663;text-decoration:none;margin:0 12px;font-size:14px;font-weight:600}
-.cta-top{background:#17142b;color:#fff!important;padding:10px 18px;border-radius:30px}
-.hero{position:relative;padding:44px 6px 8px;overflow:visible}
-h1{font-size:52px;line-height:1.06;margin:0 0 14px;max-width:560px;font-weight:800}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:linear-gradient(150deg,#45415e,#35324c 55%,#2b2942);color:#17142b;padding:26px 12px 40px}
+.sheet{max-width:1040px;margin:0 auto;background:linear-gradient(165deg,#f7f7fe 0%,#eceafd 55%,#e2defc 100%);border-radius:30px;padding:26px 30px 34px;box-shadow:0 40px 90px rgba(0,0,0,.45);position:relative;overflow:hidden}
+.sheet:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(150,130,255,.35),transparent 65%);right:-160px;top:-180px;pointer-events:none}
+nav{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:3}
+.logo{font-weight:800;font-size:19px;letter-spacing:.4px}.logo i{font-style:normal;color:#6a5cff}
+nav .links a{color:#3a3663;text-decoration:none;margin:0 13px;font-size:13.5px;font-weight:600}
+.cta-top{background:#17142b;color:#fff!important;padding:10px 18px;border-radius:30px;font-size:13px}
+.plus{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#6a5cff,#8a6dff);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 10px 20px rgba(106,92,255,.4)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:10px;padding:42px 0 0;position:relative;z-index:2}
+h1{font-size:47px;line-height:1.07;font-weight:800;letter-spacing:-.5px}
 h1 .grad{background:linear-gradient(90deg,#6a5cff,#a44dff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:#55517a;max-width:480px;font-size:16px}
-.btn{display:inline-block;padding:13px 26px;border-radius:30px;text-decoration:none;font-weight:700;font-size:15px;margin:10px 8px 0 0;transition:transform .25s,box-shadow .25s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(106,92,255,.28)}
+.lead{color:#5b5782;font-size:14.5px;max-width:400px;margin:16px 0 6px;line-height:1.65}
+.btn{display:inline-block;padding:12px 24px;border-radius:30px;text-decoration:none;font-weight:700;font-size:14px;margin:12px 8px 0 0;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(106,92,255,.30)}
 .btn.p{background:linear-gradient(90deg,#6a5cff,#8a6dff);color:#fff}
-.btn.w{background:rgba(255,255,255,.75);color:#3a3663;border:1px solid #fff;backdrop-filter:blur(6px)}
-.glass{position:absolute;border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.85),rgba(255,255,255,.25));border:1px solid rgba(255,255,255,.9);box-shadow:0 24px 44px rgba(80,70,180,.22),inset 0 1px 0 #fff;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-size:30px;animation:float 6s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(var(--r,0deg))}}
-.g1{width:104px;height:104px;right:236px;top:26px;--r:-6deg}
-.g2{width:78px;height:78px;right:108px;top:8px;--r:8deg;animation-delay:.8s;font-size:24px}
-.g3{width:118px;height:118px;right:8px;top:96px;--r:-4deg;animation-delay:1.6s}
-.g4{width:64px;height:64px;right:300px;top:140px;--r:10deg;animation-delay:2.2s;font-size:22px;background:linear-gradient(145deg,#2b2752,#17142b);color:#fff}
-.dash{margin:38px 0 6px;background:linear-gradient(120deg,#1d1a3d,#2b2752 60%,#3a2f6e);border-radius:26px;color:#fff;padding:26px;box-shadow:0 30px 60px rgba(30,25,80,.35);position:relative;overflow:hidden}
-.dash:after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(138,109,255,.5),transparent 65%);right:-90px;top:-120px}
-.dash h3{margin:0 0 6px;font-size:20px}.dash p{color:#c9c5ef;margin:0 0 14px;font-size:14px;max-width:520px}
-.pill{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:8px 14px;border-radius:20px;font-size:13px;margin:0 8px 8px 0}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:20px 0}
-.stat{background:rgba(255,255,255,.72);border:1px solid #fff;border-radius:20px;padding:18px;box-shadow:0 16px 30px rgba(90,80,190,.12);backdrop-filter:blur(6px)}
-.stat b{font-size:26px;display:block}.stat span{color:#6a6690;font-size:13px}
-.tag{float:right;background:#eceaff;color:#6a5cff;font-size:11px;padding:4px 10px;border-radius:14px;font-weight:700}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:14px 0}
-.card{background:rgba(255,255,255,.8);border:1px solid #fff;border-radius:24px;padding:24px;box-shadow:0 18px 36px rgba(90,80,190,.13)}
-.card h3{margin:2px 0 8px;font-size:19px}.card p{color:#55517a;font-size:14.5px;margin:0}
-.card .ic{font-size:28px}
-.card.dark{background:linear-gradient(150deg,#211d47,#17142b);color:#fff;border-color:#2c2757}
-.card.dark p{color:#c9c5ef}
-h2{font-size:30px;margin:30px 0 6px}
-ol.steps{color:#55517a;line-height:2}code{background:#eceaff;padding:2px 8px;border-radius:8px;color:#4a3fd6}
-.price{display:flex;flex-direction:column;gap:6px}.price b{font-size:30px}
-footer{text-align:center;color:#6a6690;font-size:13.5px;padding:26px 0 6px}
-footer a{color:#6a5cff;font-weight:700;text-decoration:none}
-@media(max-width:760px){h1{font-size:36px}.glass{display:none}nav .links{display:none}}
-</style>
-</head>
-<body>
-<div class="wrap">
-<nav>
-  <div class="logo"><i>◆</i> SIGMA BotHost</div>
-  <div class="links">
-    <a href="#features">Features</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
-    <a class="cta-top" href="https://t.me/rawi787">Get Started →</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="glass g1">🤖</div><div class="glass g2">📣</div><div class="glass g3">👥</div><div class="glass g4">⚡</div>
-  <h1>Host your Telegram bots <span class="grad">the smart way</span></h1>
-  <p class="lead">One free platform to deploy any Telegram bot, manage them all from a single panel, track every user — and broadcast one promo message to all of them at once.</p>
-  <a class="btn p" href="https://t.me/rawi787">🚀 Start Hosting Free</a>
-  <a class="btn w" href="https://whatsapp.com/channel/0029Vb8pZZq0wajvQilzCJ3s">💬 WhatsApp Channel</a>
-
-  <div class="dash">
-    <h3>📊 One panel. Every bot. Every user.</h3>
-    <p>Live bot status, per-bot user lists and one-click broadcast — open it from your phone, no server skills needed.</p>
-    <span class="pill">● Bots: RUNNING</span><span class="pill">Users tracked automatically</span><span class="pill">Broadcast ready</span>
-  </div>
-
-  <div class="stats">
-    <div class="stat"><span class="tag">HOSTING</span><b>$0</b><span>per month, forever plan</span></div>
-    <div class="stat"><span class="tag">DEPLOY</span><b>Any bot</b><span>Bot API · Python · Node · MTProto</span></div>
-    <div class="stat"><span class="tag">BROADCAST</span><b>1-click</b><span>to all users of all bots</span></div>
-    <div class="stat"><span class="tag">UPTIME</span><b>24/7</b><span>always-free cloud server</span></div>
-  </div>
-</section>
-
-<h2 id="features">Everything in one place</h2>
-<section class="grid">
-  <div class="card"><div class="ic">🚀</div><h3>Deploy any bot</h3><p>Bot API token bots in seconds, or full custom projects — Python, Node.js, even MTProto bots like Pyrogram/Kurigram. Start, stop and restart from the panel.</p></div>
-  <div class="card dark"><div class="ic">👥</div><h3>Every user, visible</h3><p>Every person who starts your bots is recorded automatically. See user counts per bot, names, usernames and last-seen — across all your bots.</p></div>
-  <div class="card"><div class="ic">📣</div><h3>One-click broadcast</h3><p>Write one message, add an optional link button (for example your WhatsApp channel), and send it to <b>all users of all hosted bots</b> in a single click.</p></div>
-  <div class="card"><div class="ic">🛠️</div><h3>Total control</h3><p>Add or delete bots, watch live status, read logs and manage everything from your phone browser.</p></div>
-  <div class="card"><div class="ic">♾️</div><h3>Always-free server</h3><p>Powered by always-free cloud infrastructure, so your bots stay online 24/7 without a monthly bill.</p></div>
-  <div class="card dark"><div class="ic">🔒</div><h3>Owner-locked</h3><p>Your panel is password-protected and bot tokens are stored securely. Only you can manage your bots and broadcast.</p></div>
-</section>
-
-<h2 id="how">How it works</h2>
-<ol class="steps">
-  <li>Create a bot with <code>@BotFather</code> on Telegram.</li>
-  <li>Add its token in the SIGMA BotHost panel — the bot goes live instantly.</li>
-  <li>Users who start your bot appear in your panel automatically.</li>
-  <li>Any time you want, broadcast a message to every user of every bot.</li>
-</ol>
-
-<h2 id="pricing">Pricing</h2>
-<section class="grid">
-  <div class="card price"><span class="tag">CURRENT</span><h3>Free Forever</h3><b>$0</b><p>Unlimited bots on the always-free server · panel · user tracking · broadcast.</p></div>
-  <div class="card price"><h3>Your own server</h3><b>Yours</b><p>The whole platform can move to your own cloud account any time — your bots, your data, your control.</p></div>
-</section>
-
-<h2 id="faq">Frequently asked questions</h2>
-<section class="grid">
-  <div class="card"><h3>Is it really free?</h3><p>Yes — bots run on always-free cloud servers, so basic hosting costs nothing.</p></div>
-  <div class="card"><h3>Which bots can I host?</h3><p>Any Telegram bot: Bot API token bots and custom Python/Node/MTProto projects.</p></div>
-  <div class="card"><h3>Can I message all my bot users at once?</h3><p>Yes. Broadcast sends one message with an optional link button to every user of every hosted bot.</p></div>
-</section>
-
-<footer>SIGMA BotHost — a SIGMA (LWS) project · <a href="https://whatsapp.com/channel/0029Vb8pZZq0wajvQilzCJ3s">WhatsApp Channel</a> · <a href="https://t.me/rawi787">Telegram</a></footer>
-</div>
-</body>
-</html>
+.btn.w{background:#fff;color:#3a3663;box-shadow:0 8px 18px rgba(90,80,190,.14)}
+.stage{position:relative;min-height:300px}
+.tile{position:absolute;border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,255,255,.30));border:1px solid rgba(255,255,255,.95);box-shadow:0 22px 40px rgba(80,70,180,.25),inset 0 1px 0 #fff;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-13px) rotate(var(--r,0deg))}}
+.t1{width:96px;height:96px;left:36px;top:6px;--r:-7deg;font-size:34px}
+.t2{width:66px;height:66px;left:168px;top:0;--r:9deg;animation-delay:.7s;font-size:24px}
+.t3{width:104px;height:104px;right:0;top:64px;--r:-5deg;animation-delay:1.3s;font-size:36px}
+.t4{width:58px;height:58px;left:8px;top:110px;--r:6deg;animation-delay:2s;background:linear-gradient(145deg,#2b2752,#17142b);font-size:22px}
+.dish{position:absolute;left:50%;transform:translateX(-50%);bottom:2px;width:330px;height:110px}
+.dish .plate{position:absolute;bottom:0;left:0;width:330px;height:64px;border-radius:50%;background:radial-gradient(ellipse at 50% 38%,rgba(255,255,255,.95),rgba(210,205,250,.55) 55%,rgba(170,160,240,.25));box-shadow:0 24px 34px rgba(80,70,180,.30),inset 0 -8px 18px rgba(120,105,230,.25)}
+.cyl{position:absolute;bottom:30px;width:56px;border-radius:10px 10px 14px 14px;box-shadow:inset -8px 0 14px rgba(255,255,255,.35),inset 8px 0 14px rgba(0,0,30,.12),0 10px 16px rgba(80,70,180,.25)}
+.cyl:before{content:"";position:absolute;top:-9px;left:0;width:56px;height:18px;border-radius:50%;background:inherit;filter:brightness(1.18)}
+.c1{left:86px;height:118px;background:linear-gradient(180deg,#b7a8ff,#7a63f2)}
+.c2{left:150px;height:82px;background:linear-gradient(180deg,#a5e8f5,#4fb8d8)}
+.c3{left:214px;height:138px;background:linear-gradient(180deg,#c9c2ff,#9587f5)}
+.strip{margin-top:26px;background:linear-gradient(120deg,#1d1a3d,#2a2653 60%,#3a2f6e);border-radius:24px;color:#fff;padding:22px 26px;display:flex;align-items:center;gap:22px;box-shadow:0 28px 50px rgba(30,25,80,.35);position:relative;overflow:hidden;z-index:2}
+.strip:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(138,109,255,.45),transparent 65%);right:-80px;top:-140px}
+.strip .ava{display:flex}.strip .ava span{width:38px;height:38px;border-radius:50%;border:2px solid #2a2653;display:flex;align-items:center;justify-content:center;font-size:16px;margin-left:-10px}
+.strip .ava span:first-child{margin-left:0}
+.bubble{background:linear-gradient(90deg,#6a5cff,#8a6dff);border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:13px;max-width:230px}
+.strip .big{margin-left:auto;text-align:right;position:relative;z-index:2}
+.strip .big b{font-size:27px;display:block}.strip .big small{color:#c9c5ef}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:18px 0 4px;position:relative;z-index:2}
+.stat{background:rgba(255,255,255,.78);border:1px solid #fff;border-radius:18px;padding:15px 16px;box-shadow:0 14px 26px rgba(90,80,190,.12)}
+.stat small{color:#8a86ad;font-size:11px;letter-spacing:1px;font-weight:700}
+.stat .row{display:flex;align-items:center;justify-content:space-between;margin-top:5px}
+.stat b{font-size:22px}
+.pilltag{background:#6a5cff;color:#fff;font-size:10.5px;padding:4px 10px;border-radius:14px;font-weight:700}
+.grid3{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:15px;margin-top:16px;position:relative;z-index:2}
+.card{border-radius:24px;padding:22px;box-shadow:0 18px 34px rgba(90,80,190,.13)}
+.card.light{background:rgba(255,255,255,.85);border:1px solid #fff}
+.card.dark{background:linear-gradient(155deg,#221e49,#141126);color:#fff}
+.card h3{font-size:19px;margin:8px 0 7px;line-height:1.3}
+.card p{font-size:13.5px;color:#5b5782;line-height:1.6}
+.card.dark p{color:#c6c2ec}
+.card .ic{font-size:26px}
+.mini-btn{display:inline-block;margin-top:14px;background:#6a5cff;color:#fff;padding:9px 18px;border-radius:22px;font-size:12.5px;font-weight:700;text-decoration:none}
+.phone{background:#fff;border-radius:18px;padding:14px;box-shadow:0 14px 28px rgba(90,80,190,.16);margin-top:12px}
+.phone .msg{background:#f0eefc;border-radius:12px 12
+...[truncated 7372 chars]
