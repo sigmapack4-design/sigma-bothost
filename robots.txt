@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sigmapack4-design.github.io/sigma-bothost/sitemap.xml
